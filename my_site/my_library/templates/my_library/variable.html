@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>The first name was {{first_name}} and her last name was {{last_name}}</h2>
+<h2>The first name was {{first_name | upper}} and her last name was {{last_name | upper}}</h2>
+<h2>The first name was {{first_name | length}} and her last name was {{last_name | length}}</h2>
+<h2>The first name was {{first_name | capfirst}} and her last name was {{last_name | capfirst}}</h2>
+<h2>The first name was {{first_name | lower | capfirst}} and her last name was {{last_name | lower | capfirst}}</h2>
+
+<!---- list  ----->
+
+<h2>{{some_list}}</h2>
+<h2>{{some_list.2}}</h2>
+
+<!--logged In-->
+{% if user_logged_in %}
+<h1>Welcome to my world </h1>
+{% endif %}
+
+<!-- list-->
+<ul>
+{% for item in some_list %}
+<!--<h1>{{item}}</h1>-->
+<!--<p>{{item}}</p>-->
+<li>{{item}}</li>
+{% endfor %}
+</ul>
+
+
+<ul>
+    {% for num in some_list %}
+    <li>{{num}}</li>
+    {% if num == 2 %}
+           <li>Two</li>
+    {% else %}
+    <li>{{num}}</li>
+    {% end if %}
+    {% endfor %}
+</ul>
+
+<!---some_list--->
+
+{% if user_logged_in %}
+<h1>Welcome to {{firstname| capfirst}} to my world </h1>
+{% end if %}
+<h1><a href="{% url 'my_library:thank_you' %}"></a>Click On me </h1>
+</body>
+</html>
